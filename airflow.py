@@ -29,3 +29,17 @@ with DAG(
     end = DummyOperator('end')
     start >> end # Define dependencies
 
+
+#3.
+    
+    def get_depndency(n):
+        for n in range(1, n):
+            task_id = 't'.format(str(n))
+            task_second = 't'.format(str(n+1))
+            first = DummyOperator(task_id)
+            second= DummyOperator(task_second)
+            if(n%2 == 0):
+               second >> first         
+            else:
+               first >> second    
+                 
